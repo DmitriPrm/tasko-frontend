@@ -1,0 +1,8 @@
+node_modules
+build
+dist
+.next
+out
+*.md
+*.svg
+*.yml
