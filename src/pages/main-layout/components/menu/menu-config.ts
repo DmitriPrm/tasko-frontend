@@ -1,11 +1,7 @@
 export const menuConfig = [
     {
-        title: 'Main page',
-        path: '/',
-    },
-    {
         title: 'My work spaces',
-        path: '/my-work-spaces',
+        path: '/',
     },
     {
         title: 'My tasks',
