@@ -4,6 +4,7 @@ import WorkSpacesPage from '../pages/work-spaces/WorkSpacesPage.tsx';
 import axios from 'axios';
 import { login, setToken } from '../store/slices/authSlice.ts';
 import { store } from '../store/store.ts';
+import { setTokenInApp } from '../providers/auth/auth.ts';
 
 const loginToSystem = (): void => {
     const token = localStorage.getItem('token');
@@ -17,12 +18,9 @@ const loginToSystem = (): void => {
     axios
         .post('http://localhost:8080/api/auth/login', {
             username: 'admian',
-            password: 'adminpassword',
+            password: 'adminpasswosrd',
         })
-        .then((response) => {
-            localStorage.setItem('token', response.data.token);
-            store.dispatch(login());
-        });
+        .then((response) => setTokenInApp(response.data.token));
 };
 
 const router = createBrowserRouter([

@@ -2,9 +2,13 @@ import Header from './components/header/Header.tsx';
 import Menu from './components/menu/Menu.tsx';
 import './main-layout.scss';
 import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { AuthPage } from '../auth/AuthPage.tsx';
 
 const MainLayout = () => {
-    return (
+    const isAuth = useSelector((state) => state.auth.isAuth);
+
+    return isAuth ? (
         <div className="main-layout">
             <Header />
             <div className="h-full flex">
@@ -14,6 +18,8 @@ const MainLayout = () => {
                 </div>
             </div>
         </div>
+    ) : (
+        <AuthPage />
     );
 };
 
