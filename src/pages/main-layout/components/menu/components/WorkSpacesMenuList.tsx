@@ -22,7 +22,9 @@ const WorkSpacesMenuList = () => {
             </div>
             <ul>
                 {workSpaces.map((workSpace) => (
-                    <li className="text-white py-2 px-4">{workSpace.title}</li>
+                    <li className="text-white py-2 px-4" key={workSpace.title}>
+                        {workSpace.title}
+                    </li>
                 ))}
             </ul>
         </div>
