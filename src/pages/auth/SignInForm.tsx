@@ -63,12 +63,12 @@ export const SignInForm: FC<ISignInFormProps> = (props) => {
             >
                 Submit
             </Button>
-            <p className="text-center">
-                Not a member?{' '}
-                <span className="text-blue-800 cursor-pointer" onClick={toggleSignIn}>
+            <div className="text-center">
+                <p className="text-gray-600">Already have an account?</p>
+                <p className="text-blue-800 cursor-pointer" onClick={toggleSignIn}>
                     Register
-                </span>
-            </p>
+                </p>
+            </div>
         </form>
     );
 };

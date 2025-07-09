@@ -1,11 +1,10 @@
 import './header.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@mui/material';
-import { logout } from '../../../../store/slices/authSlice.ts';
+import { destroyTokenInApp } from '../../../../providers/auth/auth.ts';
 
 const Header = () => {
     const isAuth = useSelector((state) => state.auth.isAuth);
-    const dispatch = useDispatch();
 
     return (
         <header className="header">
@@ -18,7 +17,7 @@ const Header = () => {
                 {isAuth ? (
                     <div className="inline-flex gap-3 items-center">
                         <span>Hello, User!</span>
-                        <Button variant="contained" onClick={() => dispatch(logout())}>
+                        <Button variant="contained" onClick={destroyTokenInApp}>
                             Sign out
                         </Button>
                     </div>
