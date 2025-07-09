@@ -1,6 +1,15 @@
 import { Button, Card } from '@mui/material';
+import type { FC } from 'react';
 
-const WorkSpacesListItem = ({ workSpace }) => {
+export interface WorkSpaceListItemProps {
+    id: number;
+    title: string;
+    description: string;
+}
+
+const WorkSpacesListItem: FC<WorkSpaceListItemProps> = (props) => {
+    const { title, description } = props;
+
     return (
         <Card>
             <img
@@ -9,8 +18,8 @@ const WorkSpacesListItem = ({ workSpace }) => {
                 }
             />
             <div className="flex flex-col gap-2 p-4">
-                <h4 className="font-bold text-xl">{workSpace.title}</h4>
-                <p className="text-gray-600">Description for the card</p>
+                <h4 className="font-bold text-xl">{title}</h4>
+                <p className="text-gray-600">{description}</p>
                 <ul>
                     <li className="flex justify-between">
                         <span>Participants</span>
