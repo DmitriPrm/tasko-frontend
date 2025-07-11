@@ -20,11 +20,4 @@ export const loginToSystem = (): void => {
         store.dispatch(login());
         return;
     }
-
-    axios
-        .post('http://localhost:8080/api/auth/login', {
-            username: 'admian',
-            password: 'adminpasswosrd',
-        })
-        .then((response) => setTokenInApp(response.data.token));
 };

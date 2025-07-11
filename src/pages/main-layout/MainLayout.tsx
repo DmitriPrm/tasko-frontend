@@ -9,12 +9,14 @@ const MainLayout = () => {
     const isAuth = useSelector((state) => state.auth.isAuth);
 
     return isAuth ? (
-        <div className="main-layout">
-            <Header />
-            <div className="h-full flex">
-                <Menu />
-                <div className="px-10 py-10 container ">
-                    <Outlet />
+        <div>
+            <div className="main-layout">
+                <Header />
+                <div className="h-full flex grow shrink">
+                    <Menu />
+                    <div className="px-10 py-10 container ">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         </div>
