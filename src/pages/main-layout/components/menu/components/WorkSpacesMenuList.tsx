@@ -32,7 +32,7 @@ const WorkSpacesMenuList = () => {
         <>
             <div className="py-4">
                 <div className="flex items-center justify-between px-4 pb-2">
-                    <h3 className="text-white">Work spaces</h3>
+                    <h3 className="text-white font-medium">Work spaces</h3>
                     <Button
                         size="small"
                         variant="contained"
@@ -43,7 +43,10 @@ const WorkSpacesMenuList = () => {
                 </div>
                 <ul>
                     {workSpaces.map((workSpace) => (
-                        <li className="text-white py-2 px-4" key={workSpace.title}>
+                        <li
+                            className="text-white py-2 px-4 hover:text-gray-200 transform duration-150 cursor-pointer"
+                            key={workSpace.title}
+                        >
                             {workSpace.title}
                         </li>
                     ))}

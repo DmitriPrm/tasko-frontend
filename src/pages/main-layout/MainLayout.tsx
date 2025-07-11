@@ -12,6 +12,7 @@ const MainLayout = () => {
         <div>
             <div className="main-layout">
                 <Header />
+                <hr className="text-white" />
                 <div className="h-full flex grow shrink">
                     <Menu />
                     <div className="px-10 py-10 container ">
