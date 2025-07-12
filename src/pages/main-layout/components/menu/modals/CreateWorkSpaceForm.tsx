@@ -9,20 +9,27 @@ export const CreateWorkSpaceForm = ({ onClose }) => {
     const [Data, setData] = useState({
         title: '',
         description: '',
+        image: null,
     });
 
     const handleChange = (event: any) => {
-        const { name, value } = event.target;
-        const newData = { ...Data, [name]: value };
+        const { name, value, files } = event.target;
+        const newData = { ...Data, [name]: files?.length ? files[0] : value };
+
         setData(newData);
     };
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
+        const formData = new FormData();
+        formData.append('title', Data.title);
+        formData.append('description', Data.description);
+        if (Data.image) formData.append('image', Data.image);
+
         setIsLoading(true);
         axios
-            .post('http://localhost:8080/api/work-space', Data)
+            .post('http://localhost:8080/api/work-space', formData)
             .then((response) => {
                 onClose();
             })
@@ -45,6 +52,7 @@ export const CreateWorkSpaceForm = ({ onClose }) => {
                     disabled={isLoading}
                     onChange={handleChange}
                 />
+                <input type="file" name="image" accept="image/*" onChange={handleChange} />
                 <Button
                     variant="contained"
                     loading={isLoading}
