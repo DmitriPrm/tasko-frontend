@@ -7,6 +7,7 @@ import { AuthPage } from '../auth/AuthPage.tsx';
 
 const MainLayout = () => {
     const isAuth = useSelector((state) => state.auth.isAuth);
+    const isMenuOpen = useSelector((state) => state.config.isMenuOpen);
 
     return isAuth ? (
         <div>

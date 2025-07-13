@@ -1,6 +1,5 @@
 import { store } from '../../store/store.ts';
 import { login, logout, setToken } from '../../store/slices/authSlice.ts';
-import axios from 'axios';
 
 export const destroyTokenInApp = () => {
     localStorage.removeItem('token');
