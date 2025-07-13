@@ -24,6 +24,8 @@ const WorkSpacesMenuList = () => {
         setIsCreateWorkSpaceModalOpen(false);
     };
 
+    const getHref = (workSpaceId: number) => `/work-spaces/${workSpaceId}/tasks`;
+
     useEffect(() => {
         fetchWorkSpaces();
     }, []);
@@ -47,7 +49,9 @@ const WorkSpacesMenuList = () => {
                             className="text-white py-2 px-4 hover:text-gray-200 transform duration-150 cursor-pointer"
                             key={workSpace.title}
                         >
-                            {workSpace.title}
+                            <a className="block w-100" href={getHref(workSpace.id)}>
+                                {workSpace.title}
+                            </a>
                         </li>
                     ))}
                 </ul>

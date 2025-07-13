@@ -9,8 +9,8 @@ export interface WorkSpaceListItemProps {
 }
 
 const WorkSpacesListItem: FC<WorkSpaceListItemProps> = (props) => {
-    const { title, description, imagePath } = props;
-    const href = 'my-tasks';
+    const { id, title, description, imagePath } = props;
+    const href = `/work-spaces/${id}/tasks`;
 
     return (
         <Card>
